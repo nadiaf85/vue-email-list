@@ -9,6 +9,23 @@
 let app = new Vue ({
     el: "#miapp",
     data: {
-        
+        email: [],
+    },
+    methods:{
+        ciclo: function(){
+            axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+            .then((risposta) =>  {
+                this.email.push(risposta.data.response)
+            })
+            .catch(function (error) {
+            console.log(error);
+            });
+        },
+        creaMail: function(){
+            for (let i = 0; i < 10; i++) {
+                this.ciclo()      
+            }
+            console.log(this.email);
+        }
     }
 })
