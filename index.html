@@ -13,7 +13,7 @@
         <button @click="creaMail">Genera 10 email</button>
 
         <div v-if="email.length == 10">
-            <div v-for="element in email">{{element}}</div>
+            <ul v-for="element in email">{{element}}</ul>
         </div>
     </div>
     
